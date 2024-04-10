@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Images</title>
+    <style>
+        /* CSS for image grid layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; /* Increase gap between images */
+            padding: 10px;
+        }
+        .image-item {
+            text-align: center;
+            border-radius: 20px; /* Add border-radius for curved edges */
+            overflow: hidden; /* Hide overflow for curved edges */
+        }
+        .image-item img {
+            width: 200px; /* Adjust width to fit container */
+            height: 200px;
+            border-radius: 20px; /* Inherit border-radius for curved edges */
+            object-fit: cover;
+        }
+        .doctor-name {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-grid" id="imageGrid"></div>
+
+    <script>
+        // JSON data containing doctor image URLs
+        const doctorImageData = [
+        {"image": "doctor1.jpg"},
+            {"image": "doctor2.jpg"},
+            {"image": "doctor3.jpg"},
+            {"image": "doctor4.jpg"},
+
+            {"image": "https://content.jdmagicbox.com/comp/chandigarh/a2/0172px172.x172.230405205913.e3a2/catalogue/dr-karan-singla-md-dnb-dhakoli-zirakpur-pulmonologists-doctors-spgp88rbuv.jpg"},
+            {"image": "doctor1.jpg"},
+            {"image": "doctor2.jpg"},
+            {"image": "doctor3.jpg"},
+            {"image": "doctor4.jpg"},
+            {"image": "doctor5.jpg"},
+            {"image": "doctor1.jpg"},
+            {"image": "doctor2.jpg"},
+            {"image": "doctor3.jpg"},
+            {"image": "doctor4.jpg"},
+            {"image": "doctor5.jpg"},
+            {"image": "doctor1.jpg"},
+            {"image": "doctor2.jpg"},
+            {"image": "doctor3.jpg"},
+            {"image": "doctor4.jpg"},
+            {"image": "doctor5.jpg"},
+            {"image": "doctor1.jpg"},
+            {"image": "doctor2.jpg"},
+            {"image": "doctor3.jpg"},
+            {"image": "doctor4.jpg"},
+            {"image": "doctor5.jpg"},
+            // Add more doctor image URLs here
+        ];
+
+        // Array containing names of doctors
+        const doctorNames = [
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd",
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd",
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd",
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd",
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd",
+            "Dr. Abcd fsgdf",
+            "Dr. Efgh dfsdsfb",
+            "Dr. Ijkl dfsgsdf",
+            "Dr. mnop dsfgs",
+            "Dr. qwer dsfgsd"
+            // Add more doctor names here in the same order as the images
+        ];
+
+        // Function to create image elements with lazy loading and append to grid
+        async function loadImages() {
+            const imageGrid = document.getElementById("imageGrid");
+
+            for (const data of doctorImageData) {
+                const img = document.createElement("img");
+                img.src = data.image;
+                img.alt = "Doctor Image";
+                img.classList.add("image-item");
+
+                const name = document.createElement("div");
+                name.textContent = doctorNames[doctorImageData.indexOf(data)];
+                name.classList.add("doctor-name");
+
+                const imageItem = document.createElement("div");
+                imageItem.classList.add("image-item");
+                imageItem.appendChild(img);
+                imageItem.appendChild(name);
+                imageGrid.appendChild(imageItem);
+            }
+        }
+
+        // Call the function to load images when the DOM content is loaded
+        document.addEventListener("DOMContentLoaded", loadImages);
+    </script>
+</body>
+</html>

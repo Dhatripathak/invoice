@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  
+  <body>
+   
+    <form id="myForm">
+      <label for="fileInput">Select a PDF file (max 1MB):</label>
+      <input type="file" id="fileInput">
+      <div style="display: block; margin-top: 10px;">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <script>
+      const form = document.getElementById('myForm');
+      const fileInput = document.getElementById('fileInput');
+      const maxFileSize = 1 * 1024 * 1024;
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault(); 
+
+        const file = fileInput.files[0];
+
+       
+        if (file.type !== 'application/pdf') {
+          alert('Please select a PDF file.');
+          fileInput.value = '';
+          return;
+        }
+
+        
+        if (file.size > maxFileSize) {
+          alert('File size exceeds 1MB limit.');
+          fileInput.value = ''; 
+          return;
+        }
+
+ 
+        alert('File uploaded!');
+        
+        
+        form.submit();
+      });
+    </script>
+  </body>
+</html>
