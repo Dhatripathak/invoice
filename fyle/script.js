@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function showResult(tax) {
-        const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
-        const modalBody = document.querySelector('#resultModal .modal-body');
+        const resultModal = new bootstrap.Modal(document.getElementById('modal')); // Updated ID here
+        const modalBody = document.querySelector('#modal .modal-body'); // Updated ID here
         modalBody.innerHTML = `<p>Tax to be paid: ${tax} Lakhs</p>`;
         resultModal.show();
     }
